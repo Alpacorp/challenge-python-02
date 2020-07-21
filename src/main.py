@@ -1,12 +1,19 @@
 # Resolve the problem!!
 import string
+import random
 
 SYMBOLS = list('!"#$%&\'()*+,-./:;?@[]^_`{|}~')
+LOWER_CASES = string.ascii_lowercase #Lisa de minúsculas
+UPPER_CASES = string.ascii_uppercase #lista de mayúsculas
+NUMBERS = string.digits #lista de números
 
 
 def generate_password():
     # Start coding here
-
+    password = ""
+    password_list = random.sample(SYMBOLS, random.randint(2,4))+random.sample(LOWER_CASES, random.randint(2, 4))+random.sample(UPPER_CASES, random.randint(2, 4))+random.sample(NUMBERS, random.randint(2,4))#random para generar resultados aleatorios entre un numero y el otro, random sample para sacar una muestra
+    password = password.join(password_list) #concatenar texto
+    return password
 
 def validate(password):
 
@@ -47,6 +54,8 @@ def run():
         print('Secure Password')
     else:
         print('Insecure Password')
+    
+    #print(password)
 
 
 if __name__ == '__main__':
